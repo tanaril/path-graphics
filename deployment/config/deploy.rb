@@ -57,7 +57,8 @@ namespace :deploy do
     task :finalize_update do
         transaction do
             run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
-            run "mkdir -r #{release_path}/cache/ngx_pagespeed_cache"
+
+            run "mkdir -p #{release_path}/cache/ngx_pagespeed_cache"
         end
     end
 
