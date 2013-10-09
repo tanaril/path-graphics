@@ -581,3 +581,54 @@ article.project > header > .container > .cancel, article.project > footer > .con
 	font-weight: 600;
 	display: inline-block;
 }
+
+.arthistory h1 {
+	text-transform: uppercase;
+	color: #494949;
+	font-size: 40px;
+	text-align: center;
+	margin-top: 115px;
+	margin-bottom: 25px;
+}
+
+.project.arthistory .main-visual {
+	background-image:  url(../images/page/thesis/westernart.jpg);
+}
+
+.chiro h1 {
+	text-transform: uppercase;
+	color: #adb584;
+	font-size: 40px;
+	text-align: center;
+	margin-top: 115px;
+	margin-bottom: 25px;
+}
+
+.project.chiro .main-visual {
+	background-image:  url(../images/page/chiro/chiro.jpg);
+}
+
+.chiro .palette  {
+	margin-top: 60px;
+}
+
+.project .noviewpages {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 115px;
+}
+
+.chiro h1 {
+	text-transform: uppercase;
+	color: #008bd0;
+	font-size: 40px;
+	text-align: center;
+	margin-top: 115px;
+	margin-bottom: 25px;
+}
+
+.project.chiro .main-visual {
+	background-image:  url(../images/page/world-without-war/worldwithoutwar.jpg);
+}
