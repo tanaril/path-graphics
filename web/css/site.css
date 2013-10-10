@@ -158,25 +158,36 @@ a:focus {
 
 #homepage > div > .buttons > a.btn-portfolio {
 	background-color: #eb4f28;
-	text-shadow: 0px 1px #84250d;
 }
 
 #homepage > div > .buttons > a.btn-about {
 	background-color: #f1c016;
-	text-shadow: 0px 1px #a08113;
 
 }
 
 #homepage > div > .buttons > a.btn-contact {
 	background-color: #1a99aa;
-	text-shadow: 0px 1px #116773;
 }
 
 #homepage > div > .buttons > a.btn-blog {
 	background-color: #409f89;
-	text-shadow: 0px 1px #225a4d;
+}
+#homepage > div > .buttons > a.btn-portfolio:hover {
+	background-color: #da4920;
 }
 
+#homepage > div > .buttons > a.btn-about:hover {
+	background-color: #e8b400;
+
+}
+
+#homepage > div > .buttons > a.btn-contact:hover {
+	background-color: #178795;
+}
+
+#homepage > div > .buttons > a.btn-blog:hover {
+	background-color: #378d79;
+}
 
 /* PORTFOLIO*/
 
