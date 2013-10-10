@@ -19,28 +19,36 @@
     </head>
 
     <body data-spy="scroll" data-target="#nav-helper">
-        <nav id="nav-helper" class="navbar navbar-fixed-top fade-hidden" style="opacity: 0">
-            <ul class="nav navbar-nav">
-                <li style="display:none;">
-                    <a href="#homepage">Homepage</a>
-                </li>
-                <li>
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
+        <nav id="nav-helper" class="navbar navbar-fixed-top" style="opacity: 0">
+            <div class="left">
+                <ul class="nav navbar-nav">
+                    <li style="display:none;">
+                        <a href="#homepage">Homepage</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul class="nav navbar-nav" style="margin-left:-82px;">
+                    <li style="width: 82px;">
+                        <span class="logo"></span>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#contact" >Contact</a>
+                    </li>
+                    <li>
+                        <a href="#blog" >Blog</a>
+                    </li>
+                </ul>
+            </div>
 
-                <li>
-                    <span class="logo"></span>
-                </li>
-                <li>
-                    <a href="#contact" >Contact</a>
-                </li>
-                <li>
-                    <a href="#blog" >Blog</a>
-                </li>
-            </ul>
         </nav>
         <div id="homepage" class="page">
             <div class="container">
@@ -210,6 +218,9 @@
                  * Resize pages based on the height of the viewport
                  */
                 jQuery(window).resize(function() {
+
+                    $("nav").children('div').width(($("nav").width()-82)/2);
+
                     // Get the height of the viewport
                     var height = jQuery(window).height();
                     // set the minimum height for every .page
@@ -506,6 +517,7 @@
                          $(this).css('color', 'grey');
                      }
                  });
+
 
                 $(window).on('MouseWheel')
             });

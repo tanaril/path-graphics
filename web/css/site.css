@@ -21,10 +21,23 @@ a:focus {
 
 
 .navbar {
-    background-image: url(../images/navbar.png);
     text-align: center;
     box-shadow: none;
     display:none;
+    background: none;
+}
+.navbar div {
+    background-image: url(../images/navbar.png);
+    background-repeat: repeat-x;
+    float:left;
+}
+.navbar .left {
+    margin-right: 41px;
+    text-align: right;
+}
+.navbar .right {
+    margin-left: 41px;
+    text-align: left;
 }
 .navbar.portfolio,
 .navbar.about,
@@ -51,21 +64,20 @@ a:focus {
     background: none;
 }
 .navbar .navbar-nav > li > span.logo {
-    background-image: url(../images/logo_portfolio.jpeg);
+    background-image: url(../images/logo-red.png);
 	height: 92px;
 	width: 83px;
 	margin: 0;
 }
 .navbar.portfolio .navbar-nav > li > span.logo {
-    background-image: url(../images/logo_portfolio.jpeg);
 }
 
 .navbar.about .navbar-nav > li > span.logo {
-    background-image: url(../images/logo_portfolio_y.jpg);
+    background-image: url(../images/logo-yellow.png);
 }
 
 .navbar.contact .navbar-nav > li > span.logo {
-    background-image: url(../images/logo_portfolio_b.jpg);
+    background-image: url(../images/logo-blue.png);
 }
 .navbar .navbar-nav {
     display: inline-block;
