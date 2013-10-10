@@ -18,37 +18,64 @@ a:focus {
 	color: #fff;
 	text-decoration: none;
 }
-nav {
-	background-image: url(../images/navbar.jpg);
-	text-align: center;	
-}
 
-nav > * {
-	height: 92px;
+
+.navbar {
+    background-image: url(../images/navbar.png);
+    text-align: center;
+    box-shadow: none;
+    display:none;
+}
+.navbar.portfolio,
+.navbar.about,
+.navbar.contact  {
+    display: block;
+}
+.navbar .navbar-nav > li > a,
+.navbar .navbar-nav > li > span {
+    height: 92px;
     line-height: 60px;
-	display:inline-block;
-	margin-left: 28px;
-	margin-right: 28px;
-}
-
-nav > a {
+    display:inline-block;
+    margin-left: 28px;
+    margin-right: 28px;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #FFF;
 	font-weight: 600;
 	font-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding:0px;
 }
-
-nav > .logo {
-	background-repeat: no-repeat;
-	background-position: center center;
+.navbar .navbar-nav > .active > a {
+    background: none;
+}
+.navbar .navbar-nav > li > span.logo {
+    background-image: url(../images/logo_portfolio.jpeg);
 	height: 92px;
 	width: 83px;
 	margin: 0;
 }
+.navbar.portfolio .navbar-nav > li > span.logo {
+    background-image: url(../images/logo_portfolio.jpeg);
+}
+
+.navbar.about .navbar-nav > li > span.logo {
+    background-image: url(../images/logo_portfolio_y.jpg);
+}
+
+.navbar.contact .navbar-nav > li > span.logo {
+    background-image: url(../images/logo_portfolio_b.jpg);
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float:none;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+}
 
 .page .container {
-	padding-bottom: 20px;
 }
 
 .form-control:focus {
@@ -162,7 +189,7 @@ nav > .logo {
 }
 
 #portfolio > div > .projects {
-	margin-bottom: 90px;
+/*	margin-bottom: 90px;*/
 }
 
 #portfolio > div > .projects > li {
