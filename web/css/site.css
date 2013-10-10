@@ -608,7 +608,7 @@ article.project > header > .container > .cancel, article.project > footer > .con
 	background-image:  url(../images/page/chiro/chiro.jpg);
 }
 
-.chiro .palette  {
+.project .palette  {
 	margin-top: 60px;
 }
 
@@ -620,7 +620,7 @@ article.project > header > .container > .cancel, article.project > footer > .con
 	margin-bottom: 115px;
 }
 
-.chiro h1 {
+.worldwithoutwar h1 {
 	text-transform: uppercase;
 	color: #008bd0;
 	font-size: 40px;
@@ -629,6 +629,19 @@ article.project > header > .container > .cancel, article.project > footer > .con
 	margin-bottom: 25px;
 }
 
-.project.chiro .main-visual {
+.worldwithoutwar .main-visual {
 	background-image:  url(../images/page/world-without-war/worldwithoutwar.jpg);
+}
+
+.markant h1 {
+	text-transform: uppercase;
+	color: #e74c3c;
+	font-size: 40px;
+	text-align: center;
+	margin-top: 115px;
+	margin-bottom: 25px;
+}
+
+.markant .main-visual {
+	background-image:  url(../images/page/markant/markant.jpg);
 }
