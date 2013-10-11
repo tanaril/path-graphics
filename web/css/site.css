@@ -244,11 +244,10 @@ a:focus {
 #portfolio > div > .projects > li > .information > h2 {
 	font-size: 26px;
 	margin: 0px;
-	text-shadow: 0px 1px #424847;
 	text-transform: uppercase;
 	margin-top: 35px;
 	margin-bottom: 15px;
-	font-weight: 600;
+	font-weight: 400;
 }
 
 #portfolio > div > .projects > li > .information > .type {
