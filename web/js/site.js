@@ -93,29 +93,20 @@ $(document).ready(function() {
         var currentScroll = $(window).scrollTop();
 
         var $homepage = $('#homepage');
-        if ( $homepage ) {
-            var $nav = $('nav');
-
-
-            var $portfolio = $('#portfolio');
-
-            var $about = $('#about');
-
-            var $contact = $('#contact');
-            var $buttons = $('#homepage .buttons');
-            if ( currentScroll <= $("#portfolio").offset().top ) {
-                var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
-                if ( pos < 0.05 ) {
-                    $nav.css('opacity', 0);
-                    $nav.css('display', 'none');
-                } else {
-                    $nav.css('display', 'block');
-                    $nav.css('opacity', pos > 1?1:pos);
-                }
+        var $nav = $('nav');
+        var $buttons = $('#homepage .buttons');
+        if ( currentScroll <= $("#portfolio").offset().top ) {
+            var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
+            if ( pos < 0.05 ) {
+                $nav.css('opacity', 0);
+                $nav.css('display', 'none');
             } else {
                 $nav.css('display', 'block');
-                $nav.css('opacity', 1);
+                $nav.css('opacity', pos > 1?1:pos);
             }
+        } else {
+            $nav.css('display', 'block');
+            $nav.css('opacity', 1);
         }
     };
 
@@ -125,7 +116,20 @@ $(document).ready(function() {
         event.preventDefault();
         event.stopImmediatePropagation();
 
-        onScroll();
+
+        if ( $('.project').length > 0 ) {
+
+            var currentScroll = $(window).scrollTop();
+
+            console.log($('.project').find('header').height());
+            if ( currentScroll > $('.project').find('header').height() && (currentScroll + $(window).height()) < $('.project').find('footer').offset().top ) {
+                $('a.leftarrow').show(); $('a.rightarrow').show();
+            } else {
+                $('a.leftarrow').hide(); $('a.rightarrow').hide();
+            }
+        } else {
+            onScroll();
+        }
     });
 
     /**
@@ -285,23 +289,11 @@ $(document).ready(function() {
         // Remove class "active" from li
         $(this).removeClass("active");
     });
-/*
-    $("#contact textarea").on('focus', function() {
-        if ( $(this).val() == 'Your message...' ) {
-            $(this).val('')
-            $(this).css('color', '#fff');
-        }
-    });
-    $("#contact textarea").on('blur', function() {
-        if ( $(this).val() == '' ) {
-            $(this).val('Your message...');
-            $(this).css('color', '#808080');
-        }
-    });*/
 
+    var scrollPosition = null;
     $('#portfolio .projects a').on('click', function(event) {
         event.preventDefault();
-        var scrollPosition = $(window).scrollTop();
+        if ( null === scrollPosition ) { scrollPosition = $(window).scrollTop(); }
         var $body = $('body > div.content');
         var $this = $(this);
         $.get($(this).attr('href'), function(data) {
@@ -310,10 +302,10 @@ $(document).ready(function() {
             $newBody.insertAfter($body);
             $body.hide();
 
-            var close = function() {
-
+            $newBody.find('a.cancel').on('click', function(event) {
+                event.preventDefault();
+                $body.siblings().remove();
                 $body.show();
-                $newBody.remove();
                 scrollEnabled = false;
                 $('html, body').animate({
                     scrollTop: scrollPosition
@@ -322,27 +314,26 @@ $(document).ready(function() {
                     duration: 1,
                     easing: 'linear'
                 });
-            }
-            $newBody.find('a.cancel').on('click', function(event) {
-                event.preventDefault();
-                close();
+                scrollPosition = null;
             });
 
-            $newBody.find('a.next').on('click', function(event) {
+            $('a.leftarrow').hide(); $('a.rightarrow').hide();
+
+            $newBody.find('a.next, a.rightarrow').on('click', function(event) {
                 event.preventDefault();
-                close();
+                $newBody.remove();
                 $this.closest('li').next().find('a').trigger('click');
             });
-            $newBody.find('a.previous').on('click', function(event) {
+            $newBody.find('a.previous, a.leftarrow').on('click', function(event) {
                 event.preventDefault();
-                close();
+                $newBody.remove();
                 $this.closest('li').prev().find('a').trigger('click');
             });
             if ( $this.closest('li').prev().length == 0 || $this.closest('li').prev().find('a').length == 0 ) {
-                $newBody.find('a.previous').remove();
+                $newBody.find('a.previous, a.leftarrow').remove();
             }
             if ( $this.closest('li').next().length == 0 || $this.closest('li').next().find('a').length == 0 ) {
-                $newBody.find('a.next').remove();
+                $newBody.find('a.next, a.rightarrow').remove();
             }
 
             scrollEnabled = true;
