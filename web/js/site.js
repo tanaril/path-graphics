@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var scrollEnabled = false;
+
     /**
      * Resize pages based on the height of the viewport
      */
@@ -69,15 +71,10 @@ $(document).ready(function() {
         $('html, body').animate({
             scrollTop: $target.offset().top
         }, 2000, 'swing', function() {
-            // Block quick scrolling
-            setTimeout(function() {
-                // Set the location hash correctly
-                window.location.hash = $target.attr('id');
-                // Set the new page as the active page
-                $target.addClass('active');
-                // Re-enable scrolling when finished
-                autoScroll = false;
-            }, 20);
+            // Set the new page as the active page
+            $target.addClass('active');
+            // Re-enable scrolling when finished
+            autoScroll = false;
         });
     });
     /*$('#nav-helper').on('activate.bs.scrollspy', function () {
@@ -90,27 +87,45 @@ $(document).ready(function() {
 
     var navVisible = -1;
 
+    var onScroll = function() {
+
+        // Get the current scroll position
+        var currentScroll = $(window).scrollTop();
+
+        var $homepage = $('#homepage');
+        if ( $homepage ) {
+            var $nav = $('nav');
+
+
+            var $portfolio = $('#portfolio');
+
+            var $about = $('#about');
+
+            var $contact = $('#contact');
+            var $buttons = $('#homepage .buttons');
+            if ( currentScroll <= $("#portfolio").offset().top ) {
+                var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
+                if ( pos < 0.05 ) {
+                    $nav.css('opacity', 0);
+                    $nav.css('display', 'none');
+                } else {
+                    $nav.css('display', 'block');
+                    $nav.css('opacity', pos > 1?1:pos);
+                }
+            } else {
+                $nav.css('display', 'block');
+                $nav.css('opacity', 1);
+            }
+        }
+    };
+
     $(window).on("scroll",function(event) {
 
         // Block scroll if the auto scroll is active
         event.preventDefault();
         event.stopImmediatePropagation();
 
-        // Get the current scroll position
-        var currentScroll = $(this).scrollTop();
-
-        var $nav = $('nav');
-        var $homepage = $('#homepage');
-        var $buttons = $('#homepage .buttons');
-
-        var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
-        if ( pos < 0.05 ) {
-            $nav.css('opacity', 0);
-            $nav.css('display', 'none');
-        } else {
-            $nav.css('opacity', pos > 1?1:pos);
-            $nav.css('display', 'block');
-        }
+        onScroll();
     });
 
     /**
@@ -220,34 +235,9 @@ $(document).ready(function() {
                             queue: false,
                             duration: 1500,
                             easing: 'linear',
-                            progress: function() {
-
-                                // Get the current scroll position
-                                var currentScroll = $(window).scrollTop();
-
-                                var $nav = $('nav');
-                                var $homepage = $('#homepage');
-                                var $buttons = $('#homepage .buttons');
-                                if ( currentScroll <= $("#portfolio").offset().top ) {
-                                    var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
-                                    if ( pos < 0.05 ) {
-                                        $nav.css('opacity', 0);
-                                        $nav.css('display', 'none');
-                                    } else {
-                                        $nav.css('display', 'block');
-                                        $nav.css('opacity', pos > 1?1:pos);
-                                    }
-                                } else {
-                                    $nav.css('display', 'block');
-                                    $nav.css('opacity', 1);
-                                }
-                            },
+                            progress: onScroll,
                             done: function() {
                                 setTimeout(function() {
-
-                                    // Set the location hash correctly
-                                    //window.location.hash = $target.attr('id') != 'homepage'?$target.attr('id'):null;
-
                                     // Re-enable user scrolling
                                     autoScroll = false;
                                 }, 100);
@@ -262,18 +252,24 @@ $(document).ready(function() {
 
     //Firefox
     $(window).on('DOMMouseScroll', function(event){
-
-        event.preventDefault();
-        scroll(event.originalEvent.detail);
-        return false;
+        if ( scrollEnabled ) {
+            return true;
+        } else {
+            event.preventDefault();
+            scroll(event.originalEvent.detail*-1);
+            return false;
+        }
     });
 
     //IE, Opera, Safari
     $(window).on('mousewheel', function(event){
-
-        event.preventDefault();
-        scroll(event.originalEvent.wheelDelta*-1);
-        return false;
+        if ( scrollEnabled ) {
+            return true;
+        } else {
+            event.preventDefault();
+            scroll(event.originalEvent.wheelDelta*-1);
+            return false;
+        }
     });
 
     /**
@@ -289,7 +285,7 @@ $(document).ready(function() {
         // Remove class "active" from li
         $(this).removeClass("active");
     });
-
+/*
     $("#contact textarea").on('focus', function() {
         if ( $(this).val() == 'Your message...' ) {
             $(this).val('')
@@ -299,7 +295,64 @@ $(document).ready(function() {
     $("#contact textarea").on('blur', function() {
         if ( $(this).val() == '' ) {
             $(this).val('Your message...');
-            $(this).css('color', 'grey');
+            $(this).css('color', '#808080');
         }
+    });*/
+
+    $('#portfolio .projects a').on('click', function(event) {
+        event.preventDefault();
+        var scrollPosition = $(window).scrollTop();
+        var $body = $('body > div.content');
+        var $this = $(this);
+        $.get($(this).attr('href'), function(data) {
+            var body = $(data);
+            var $newBody = $('<div></div>').append(body);
+            $newBody.insertAfter($body);
+            $body.hide();
+
+            var close = function() {
+
+                $body.show();
+                $newBody.remove();
+                scrollEnabled = false;
+                $('html, body').animate({
+                    scrollTop: scrollPosition
+                }, {
+                    queue: false,
+                    duration: 1,
+                    easing: 'linear'
+                });
+            }
+            $newBody.find('a.cancel').on('click', function(event) {
+                event.preventDefault();
+                close();
+            });
+
+            $newBody.find('a.next').on('click', function(event) {
+                event.preventDefault();
+                close();
+                $this.closest('li').next().find('a').trigger('click');
+            });
+            $newBody.find('a.previous').on('click', function(event) {
+                event.preventDefault();
+                close();
+                $this.closest('li').prev().find('a').trigger('click');
+            });
+            if ( $this.closest('li').prev().length == 0 || $this.closest('li').prev().find('a').length == 0 ) {
+                $newBody.find('a.previous').remove();
+            }
+            if ( $this.closest('li').next().length == 0 || $this.closest('li').next().find('a').length == 0 ) {
+                $newBody.find('a.next').remove();
+            }
+
+            scrollEnabled = true;
+            $('html, body').animate({
+                scrollTop: 0
+            }, {
+                queue: false,
+                duration: 1,
+                easing: 'linear'
+            });
+        });
     });
 });
