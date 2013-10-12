@@ -27,6 +27,7 @@ a:focus {
     background: none;
 }
 .navbar div {
+    background: transparent;
     background-image: url(../images/navbar.png);
     background-repeat: repeat-x;
     float:left;
