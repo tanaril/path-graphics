@@ -1,21 +1,30 @@
 $(document).ready(function() {
     var scrollEnabled = false;
+    var windowHeight = 0;
+    var $body = $('html, body');
+    var $window = $(window);
+    var $homepage = $('#homepage');
+    var $nav = $('nav');
+    var $buttons = $('#homepage .buttons');
+    var $portfolio = $('#portfolio');
+    var $about = $('#about');
+    var $contact = $('#contact');
+    var $pages = $('.page');
+
 
     /**
      * Resize pages based on the height of the viewport
      */
-    jQuery(window).resize(function() {
+     $window.resize(function() {
 
-        $("nav").children('div').width(($("nav").width()-82)/2);
+        $nav.children('div').width(($nav.width()-82)/2);
 
         // Get the height of the viewport
         var height = jQuery(window).height();
         // set the minimum height for every .page
-        $.each($(".page"), function(index, element) {
+        $.each($pages, function(index, element) {
             // Find the actual content of the page
             var $container = $(this).find(".container");
-            // Find the navigation of the page
-            var $nav = $('nav');
             // Get the content height
             var containerHeight = $container.height();
             // Calculate the top margin
@@ -41,10 +50,12 @@ $(document).ready(function() {
             // Set the minimum height of the page.
             $(this).css({"min-height": height});
         });
+
+        windowHeight = $window.height();
     });
 
     // Trigger the resize when the page is loaded
-    $(window).trigger('resize');
+    $window.trigger('resize');
 
     // Storage flag to see if the browser is already scrolling or not
     var autoScroll = false;
@@ -58,24 +69,17 @@ $(document).ready(function() {
         // get the name of the target where the user wants to be directed to
         var $target = $($(this).attr('href'));
 
-        // Remove the active flag from the old page.
-        $target.siblings('.active').removeClass('active');
-
-        $.each($target.siblings('.page'), function(index, page) {
-            $('nav').removeClass($(page).attr('id'));
-        });
-        $('nav').addClass($target.attr('id'));
-        // Block futher scrolling till the auto scroll is finished
-        autoScroll = true;
-        // Scroll
-        $('html, body').animate({
-            scrollTop: $target.offset().top
-        }, 2000, 'swing', function() {
-            // Set the new page as the active page
-            $target.addClass('active');
-            // Re-enable scrolling when finished
-            autoScroll = false;
-        });
+        if ( $target ) {
+            // Block futher scrolling till the auto scroll is finished
+            autoScroll = true;
+            // Scroll
+            $body.animate({
+                scrollTop: $target.offset().top
+            }, 2000, 'swing', function() {
+                // Re-enable scrolling when finished
+                autoScroll = false;
+            });
+        }
     });
     /*$('#nav-helper').on('activate.bs.scrollspy', function () {
      $this = $(this);
@@ -86,16 +90,12 @@ $(document).ready(function() {
      });*/
 
     var navVisible = -1;
-
     var onScroll = function() {
 
         // Get the current scroll position
-        var currentScroll = $(window).scrollTop();
+        var currentScroll = $window.scrollTop();
 
-        var $homepage = $('#homepage');
-        var $nav = $('nav');
-        var $buttons = $('#homepage .buttons');
-        if ( currentScroll <= $("#portfolio").offset().top ) {
+        if ( currentScroll <= $portfolio.offset().top ) {
             var pos = (currentScroll-($buttons.offset().top + $buttons.height()))/($homepage.height()-($buttons.offset().top + $buttons.height()));
             if ( pos < 0.05 ) {
                 $nav.css('opacity', 0);
@@ -107,6 +107,33 @@ $(document).ready(function() {
         } else {
             $nav.css('display', 'block');
             $nav.css('opacity', 1);
+
+            $.each($pages, function(index, page) {
+                $nav.removeClass($(page).attr('id'));
+            });
+
+            if ( currentScroll < $portfolio.offset().top ) {
+                $homepage.siblings('.active').removeClass('active');
+                $homepage.addClass('active');
+
+                $nav.addClass('homepage');
+            } else if ( currentScroll >= $portfolio.offset().top && currentScroll < $about.offset().top) {
+                $portfolio.siblings('.active').removeClass('active');
+                $portfolio.addClass('active');
+
+                $nav.addClass('portfolio');
+            } else if ( currentScroll >= $about.offset().top && currentScroll < $contact.offset().top ) {
+                $about.siblings('.active').removeClass('active');
+                $about.addClass('active');
+
+                $nav.addClass('about');
+            } else if ( currentScroll >= $contact.offset().top ) {
+
+                $contact.siblings('.active').removeClass('active');
+                $contact.addClass('active');
+
+                $nav.addClass('contact');
+            }
         }
     };
 
@@ -119,9 +146,8 @@ $(document).ready(function() {
 
         if ( $('.project').length > 0 ) {
 
-            var currentScroll = $(window).scrollTop();
+            var currentScroll = $window.scrollTop();
 
-            console.log($('.project').find('header').height());
             if ( currentScroll > $('.project').find('header').height() && (currentScroll + $(window).height()) < $('.project').find('footer').offset().top ) {
                 $('a.leftarrow').show(); $('a.rightarrow').show();
             } else {
@@ -132,18 +158,22 @@ $(document).ready(function() {
         }
     });
 
+
+
+
     /**
      * Single scroll to scroll to the next page.
      */
     function scroll(scrollDelta) {
-        // Check if it's not already scrolling
-        if ( !autoScroll ) {
-            var $nav = $('nav');
-            var $homepage = $('#homepage');
-            var $buttons = $('#homepage .buttons');
-
             // Get the current scroll position
-            var currentScroll = $(this).scrollTop();
+            var currentScroll = $window.scrollTop();
+
+            if ( currentScroll <= 0 && scrollDelta <= 0 ) {
+//                /return false;
+            }
+            if ( currentScroll >= $contact.offset().top && scrollDelta > 0 ) {
+//                return false;
+            }
 
             // Find the currently active navigation item
             var $current = $(".page.active");
@@ -158,82 +188,25 @@ $(document).ready(function() {
             }
             // Check if there is an active navigation item
             if ( $current ) {
-                // Flag to check if we need to scroll to the next page
-                var scroll = true;
-                // Height of the visual page
-                var viewportHeight = $(window).height();
+                var $target;
+
                 // Top position of the current page
                 var pageTop = $current.offset().top;
-                // Check if the page is lager than the viewport and that the scroll position is larger than the top
-                if ( $current.height() > $(window).height() ) {
-                    // Absolute bottom of the page
-                    var pageBottom = pageTop + $current.height();
-                    // Bottom of the visual page
-                    var viewportBottom = currentScroll+viewportHeight;
+                var currentHeight = $current.height();
+                // Absolute bottom of the page
+                var pageBottom = pageTop + currentHeight;
 
-                    // check if the viewport doesn't display a new page
-                    if ( (currentScroll > pageTop || scrollDelta > 0) && ( viewportBottom < pageBottom-20 || scrollDelta < 0) ) {
-                        // Calculate the new visuable pag
-                        var scrollTo = scrollDelta < 0?currentScroll - viewportHeight:currentScroll + viewportHeight;
-                        // Prevent the scroll to go outside of the bounds of the current page
-                        if ( scrollTo < pageTop ) scrollTo = pageTop;
-                        // Stop scroll at the bottom of the current page
-                        if ( scrollTo+viewportHeight > pageBottom ) scrollTo = pageBottom - viewportHeight;
+                // Determine scroll direction
+                if (scrollDelta > 0){
+                    // Get the next page
+                    $target = $current.next('.page');
+                    if ( currentScroll + windowHeight > pageBottom && $target.length > 0 ) {
 
-                        // Block user scrolling
-                        autoScroll = true;
-
-                        // Scroll
-                        $('html, body').animate({
-                            scrollTop: scrollTo
-                        }, {
-                            queue: false,
-                            duration: 1500,
-                            easing: 'linear',
-                            done: function() {
-                                setTimeout(function() {
-                                    // Set the location hash correctly
-                                    //window.location.hash = $target.attr('id') != 'homepage'?$target.attr('id'):null;
-
-                                    // Re-enable user scrolling
-                                    autoScroll = false;
-                                }, 100);
-                            }
-                        });
-                        // Disable scrolling to the next page
-                        scroll = false;
-
-                    }
-                }
-                // Check if we need to scroll to the next page
-                if ( scroll ) {
-                    var $target;
-
-                    // Determine scroll direction
-                    if (scrollDelta > 0){
-                        // Get the next page
-                        $target = $current.next('.page');
-                    } else {
-                        // Get the previous page
-                        $target = $current.prev('.page');
-                    }
-
-                    // Check if the target exists
-                    if ( $target.length > 0 ) {
-                        // Remove the active flag from the old page.
                         $target.siblings('.active').removeClass('active');
-
-                        $.each($target.siblings('.page'), function(index, page) {
-                            $nav.removeClass($(page).attr('id'));
-                        });
-                        $nav.addClass($target.attr('id'));
-                        // Block user scrolling
-                        autoScroll = true;
-                        // Set the new page as the active page
                         $target.addClass('active');
 
                         // Scroll
-                        $('html, body').animate({
+                        $body.animate({
                             scrollTop: $target.offset().top
                         }, {
                             queue: false,
@@ -244,35 +217,60 @@ $(document).ready(function() {
                                 setTimeout(function() {
                                     // Re-enable user scrolling
                                     autoScroll = false;
-                                }, 100);
+                                }, 400);
                             }
                         });
+                        return true;
+                    }
+                } else {
+                    // Get the previous page
+                    $target = $current.prev('.page');
+                    if ( currentScroll <= pageTop && $target.length > 0) {
+
+                        $target.siblings('.active').removeClass('active');
+                        $target.addClass('active');
+
+                        // Scroll
+                        $body.animate({
+                            scrollTop: $target.offset().top
+                        }, {
+                            queue: false,
+                            duration: 1500,
+                            easing: 'linear',
+                            progress: onScroll,
+                            done: function() {
+                                setTimeout(function() {
+                                    // Re-enable user scrolling
+                                    autoScroll = false;
+                                }, 400);
+                            }
+                        });
+                        return true;
                     }
                 }
             }
-        } else {
-        };
     }
 
-    //Firefox
-    $(window).on('DOMMouseScroll', function(event){
+    $(window).on('mousewheel DOMMouseScroll', function (e) {
         if ( scrollEnabled ) {
             return true;
         } else {
-            event.preventDefault();
-            scroll(event.originalEvent.detail*-1);
-            return false;
-        }
-    });
+            e.preventDefault();
+            e.delta = null;
+            if (e.originalEvent) {
+                if (e.originalEvent.wheelDelta) e.delta = e.originalEvent.wheelDelta / -40;
+                if (e.originalEvent.deltaY) e.delta = e.originalEvent.deltaY;
+                if (e.originalEvent.detail) e.delta = e.originalEvent.detail;
+            }
 
-    //IE, Opera, Safari
-    $(window).on('mousewheel', function(event){
-        if ( scrollEnabled ) {
-            return true;
-        } else {
-            event.preventDefault();
-            scroll(event.originalEvent.wheelDelta*-1);
-            return false;
+            // Check if it's not already scrolling
+            if ( !autoScroll ) {
+                autoScroll = true;
+                if ( !scroll(e.delta) ) {
+                    autoScroll = false;
+                }
+            }
+            return false
         }
     });
 
