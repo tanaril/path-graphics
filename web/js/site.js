@@ -251,7 +251,29 @@ $(document).ready(function() {
             }
     }
 
-    $(window).on('mousewheel DOMMouseScroll', function (e) {
+    $(this).on('DOMMouseScroll', function (e) {
+        if ( scrollEnabled ) {
+            return true;
+        } else {
+            e.preventDefault();
+            e.delta = null;
+            if (e.originalEvent) {
+                if (e.originalEvent.wheelDelta) e.delta = e.originalEvent.wheelDelta / -40;
+                if (e.originalEvent.deltaY) e.delta = e.originalEvent.deltaY;
+                if (e.originalEvent.detail) e.delta = e.originalEvent.detail;
+            }
+
+            // Check if it's not already scrolling
+            if ( !autoScroll ) {
+                autoScroll = true;
+                if ( !scroll(e.delta) ) {
+                    autoScroll = false;
+                }
+            }
+            return false
+        }
+    });
+    $(this).on('mousewheel', function (e) {
         if ( scrollEnabled ) {
             return true;
         } else {
