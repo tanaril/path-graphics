@@ -22,7 +22,6 @@ a:focus {
 .navbar {
     text-align: center;
     box-shadow: none;
-    display:none;
     background: none;
 }
 .navbar div {
@@ -54,7 +53,6 @@ a:focus {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #FFF;
-	font-weight: 600;
 	font-size: 14px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -148,7 +146,6 @@ a:focus {
 	text-decoration: none;
 	margin-left: 7px;
 	margin-right: 7px;
-	font-weight: 600;
 
 	
 	-webkit-border-radius: 130px;
@@ -195,7 +192,7 @@ a:focus {
 	background-image: url(../images/logo_portfolio.jpeg);
 }
 
-#portfolio > nav > .selected {
+#portfolio > nav .selected {
 	color: #ed6c4c;
 }
 
@@ -212,7 +209,7 @@ a:focus {
 }
 
 #portfolio > div > .projects {
-/*	margin-bottom: 90px;*/
+	margin-bottom: 150px;
 }
 
 #portfolio > div > .projects > li {
@@ -299,7 +296,7 @@ a:focus {
 	background-image: url(../images/logo_portfolio_y.jpg);
 }
 
-#about > nav > .selected {
+#about > nav .selected {
 	color: #f1c016;
 }
 
@@ -396,17 +393,8 @@ a:focus {
 	background-image: url(../images/skewed_print.png);
 }
 
-#contact > nav > .logo {
-	background-image: url(../images/logo_portfolio_b.jpg);
-}
-
-#contact > nav > .selected {
+#contact > nav .selected {
 	color: #1a99aa;
-}
-
-#contact nav {
-	background-image: url(../images/navbar.png);
-	text-align: center;	
 }
 
 #contact > div > h1 {

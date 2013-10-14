@@ -18,17 +18,32 @@
         </script>
     </head>
 
-    <body data-spy="scroll" data-target="#nav-helper">
+    <body>
 
         <div class="content">
-            <nav id="nav-helper" class="navbar navbar-fixed-top" style="opacity: 0">
+            <div id="homepage" class="page">
+                <div class="container">
+                    <div id="logo">path graphics</div>
+                    <h1>Hello and welcome to my portfolio</h1>
+                    <p>I'm a Graphic Designer specialising in Web Design, Visual and UI Design.</p>
+                    <div class="buttons">
+                        <a href="#portfolio" class="btn-portfolio">My portfolio</a>
+                        <a href="#about" class="btn-about">About me</a>
+                        <a href="#contact" class="btn-contact">Contact me</a>
+                        <a href="#blog" class="btn-blog">My Blog</a>
+                    </div>
+                </div>
+            </div>
+
+        <div id="portfolio" class="page">
+            <nav class="navbar portfolio">
                 <div class="left">
                     <ul class="nav navbar-nav">
                         <li style="display:none;">
                             <a href="#homepage">Homepage</a>
                         </li>
                         <li>
-                            <a href="#portfolio">Portfolio</a>
+                            <a href="#portfolio" class="selected">Portfolio</a>
                         </li>
                         <li>
                             <a href="#about">About</a>
@@ -50,23 +65,7 @@
                         </li>
                     </ul>
                 </div>
-    
             </nav>
-            <div id="homepage" class="page">
-                <div class="container">
-                    <div id="logo">path graphics</div>
-                    <h1>Hello and welcome to my portfolio</h1>
-                    <p>I'm a Graphic Designer specialising in Web Design, Visual and UI Design.</p>
-                    <div class="buttons">
-                        <a href="#portfolio" class="btn-portfolio">My portfolio</a>
-                        <a href="#about" class="btn-about">About me</a>
-                        <a href="#contact" class="btn-contact">Contact me</a>
-                        <a href="#blog" class="btn-blog">My Blog</a>
-                    </div>
-                </div>
-            </div>
-
-        <div id="portfolio" class="page">
             <div class="container">
                 <h1>Portfolio</h1>
                 <ul class="row list-unstyled projects">
@@ -120,6 +119,36 @@
                 </div>
             </div>
             <div id="about" class="page">
+                <nav class="navbar about">
+                    <div class="left">
+                        <ul class="nav navbar-nav">
+                            <li style="display:none;">
+                                <a href="#homepage">Homepage</a>
+                            </li>
+                            <li>
+                                <a href="#portfolio">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="#about" class="selected">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul class="nav navbar-nav" style="margin-left:-82px;">
+                            <li style="width: 82px;">
+                                <span class="logo"></span>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#contact" >Contact</a>
+                            </li>
+                            <li>
+                                <a href="#blog" >Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
                 <div class="container">
                       <h1>About</h1>
                       <div class="row">
@@ -148,6 +177,36 @@
             </div>
 
             <div id="contact" class="page">
+                <nav class="navbar contact">
+                    <div class="left">
+                        <ul class="nav navbar-nav">
+                            <li style="display:none;">
+                                <a href="#homepage">Homepage</a>
+                            </li>
+                            <li>
+                                <a href="#portfolio">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="#about">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul class="nav navbar-nav" style="margin-left:-82px;">
+                            <li style="width: 82px;">
+                                <span class="logo"></span>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#contact" class="selected">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#blog" >Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
                 <div class="container">
                     <h1>Contact</h1>
                     <div class="row">
