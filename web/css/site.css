@@ -158,7 +158,7 @@ a:focus {
 }
 
 #homepage > div > .buttons > a.btn-portfolio {
-	background-color: #cb4422;
+	background-color: #eb4f28;
 }
 
 #homepage > div > .buttons > a.btn-about {
@@ -174,7 +174,7 @@ a:focus {
 	background-color: #409f89;
 }
 #homepage > div > .buttons > a.btn-portfolio:hover {
-	background-color: #da4920;
+	background-color: #cb4422;
 }
 
 #homepage > div > .buttons > a.btn-about:hover {
