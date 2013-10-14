@@ -761,3 +761,12 @@ article.project > header > .container > .cancel, article.project > footer > .con
 .markant .main-visual {
 	background-image:  url(../images/page/markant/markant.jpg);
 }
+
+.alert-success {
+    background:none;
+    background-color: #292929;
+    border: 0 none;
+    box-shadow: none;
+    color: #1A99AA;
+    text-shadow: none;
+}
