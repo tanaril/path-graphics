@@ -237,7 +237,7 @@ a:focus {
 	font-size: 26px;
 	margin: 0px;
 	text-transform: uppercase;
-	margin-top: 35px;
+	margin-top: 20px;
 	margin-bottom: 15px;
 	font-weight: 400;
 }
@@ -255,13 +255,40 @@ a:focus {
 	font-size: 15px;
 }
 
-#portfolio > div > .projects > li > .information > a {
-	display: block;
+#portfolio > div > .projects > li > .information > .details {
 	text-align: right;
 	color: #fff;
-	margin-top: 30px;
-	font-size: 14px;
+	margin-top: 15px;
+	font-size: 12px;
+	background-color: #eb4f28;
+	padding: 8px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 600;
 }
+
+#portfolio > div > .projects > li > .information > .details:hover{
+	text-align: right;
+	color: #fff;
+	margin-top: 15px;
+	font-size: 12px;
+	background-color: #d74723;
+	padding: 8px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 600;
+}
+
 
 /* ABOUT*/
 
@@ -292,7 +319,7 @@ a:focus {
 
 #about .download {
 	background-color: #222;
-	padding: 4px;
+	padding: 8px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -302,13 +329,33 @@ a:focus {
 	display: inline-block;
 	background-image: url(../images/dlicon.png);
 	background-repeat: no-repeat;
-	background-position: 7px center;
-	padding-left: 23px;
-	padding-right: 9px;
+	background-position: 13px center;
+	padding-left: 30px;
+	padding-right: 15px;
 	margin-bottom: 90px;
 	font-size: 12px;
 	font-weight: 600;
 }
+#about .download:hover {
+	background-color: #000;
+	padding: 8px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #FFF;
+	text-transform: uppercase;
+	margin-top: 70px;
+	display: inline-block;
+	background-image: url(../images/dlicon.png);
+	background-repeat: no-repeat;
+	background-position: 13px center;
+	padding-left: 30px;
+	padding-right: 15px;
+	margin-bottom: 90px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
 
 #about .design {
 	background-image: url(../images/webdesign.png);
@@ -379,15 +426,40 @@ a:focus {
 	width: 350px;
 }
 
-#contact .social{
+#contact .phone{
 	border-top: 1px solid #1E1E1E;
     box-shadow: 0 -1px #000000;
 	margin-top: 28px;
+	padding-top: 25px;
+	background-image: url(../images/phone.png);
+	background-repeat: no-repeat;
+	background-position: 0px 18px;
+	color: #fff;
+	padding-left: 45px;
+	height: 60px;
+	font-size: 15px;
+}
+
+#contact .social{
+	border-top: 1px solid #1E1E1E;
+    box-shadow: 0 -1px #000000;
+	margin-top: 16px;
 	padding-top: 20px;
 }
 
 #contact .skype{
 	background-image: url(../images/skype.png);
+	background-repeat:no-repeat;
+	background-position: 0px center;
+	width: 35px;
+	height:35px;
+	display:inline-block;
+	margin-right: 15px;
+	
+}
+
+#contact .skype:hover{
+	background-image: url(../images/skypehover.png);
 	background-repeat:no-repeat;
 	background-position: 0px center;
 	width: 35px;
@@ -406,6 +478,14 @@ a:focus {
 	display:inline-block;
 }
 
+#contact .linkedin:hover{
+	background-image: url(../images/linkedinhover.png);
+	background-repeat:no-repeat;
+	background-position: 0px center;
+	width: 35px;
+	height:35px;
+	display:inline-block;
+}
 #contact input {
 	background-color: rgba(255, 255, 255, 0.1);
 	border:0;
@@ -434,9 +514,9 @@ a:focus {
 	padding: 15px;
 	padding-left: 50px;
 	padding-right:50px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 	color: #FFF;
 	text-transform: uppercase;
 	margin-top: 22px;
@@ -450,6 +530,26 @@ a:focus {
 				inset 0px 1px 1px 0 rgba(255, 255, 255, 0.43);
 }
 
+#contact button:hover {
+	background-color: #178795;
+	padding: 15px;
+	padding-left: 50px;
+	padding-right:50px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #FFF;
+	text-transform: uppercase;
+	margin-top: 22px;
+	margin-bottom: 90px;
+	font-size: 14px;
+	font-weight: 600;
+	border: 1px solid #136a76;
+	-webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.75), 
+						inset 0 1px 1px 0 rgba(255, 255, 255, 0.50);
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.89), 
+				inset 0px 1px 1px 0 rgba(255, 255, 255, 0.43);
+}
 /* WEBSITES */
 
 article.project > header, article.project > footer  {
@@ -608,15 +708,31 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
 .project .view {
 	background-color: #222;
-	padding: 4px;
+	padding: 8px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	color: #FFF;
 	text-transform: uppercase;
 	margin-top: 60px;
-	padding-left:10px;
-	padding-right: 10px;
+	padding-left:15px;
+	padding-right: 15px;
+	margin-bottom: 115px;
+	font-size: 14px;
+	font-weight: 600;
+	display: inline-block;
+}
+.project .view:hover {
+	background-color: #000;
+	padding: 8px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #FFF;
+	text-transform: uppercase;
+	margin-top: 60px;
+	padding-left:15px;
+	padding-right: 15px;
 	margin-bottom: 115px;
 	font-size: 14px;
 	font-weight: 600;
