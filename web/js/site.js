@@ -57,6 +57,19 @@ $(document).ready(function() {
     // Trigger the resize when the page is loaded
     $window.trigger('resize');
 
+    $('form').on('submit', function(event) {
+        event.preventDefault();
+
+        $('#failure').hide();
+        $.post('/mail.php', {from: $(this).find('input[name=from]').val(), from_email: $(this).find('input[name=email]').val(), message: $(this).find('textarea[name=message]').val()}, function(result) {
+            if ( result.success ) {
+                $('form').hide();
+                $('#success').show();
+            } else {
+                $('#failure').show();
+            }
+        }, 'json');
+    });
     // Storage flag to see if the browser is already scrolling or not
     var autoScroll = false;
 
