@@ -57,6 +57,9 @@ a:focus {
     background-repeat: no-repeat;
     background-position: center center;
     padding:0px;
+    font-weight: 400;
+    text-shadow: none;
+
 }
 .navbar .navbar-nav > .active > a {
     background: none;
@@ -146,6 +149,7 @@ a:focus {
 	text-decoration: none;
 	margin-left: 7px;
 	margin-right: 7px;
+    font-weight: 400;
 
 	
 	-webkit-border-radius: 130px;
@@ -234,7 +238,7 @@ a:focus {
 	font-size: 26px;
 	margin: 0px;
 	text-transform: uppercase;
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-bottom: 15px;
 	font-weight: 400;
 }
@@ -255,7 +259,7 @@ a:focus {
 #portfolio > div > .projects > li > .information > .details {
 	text-align: right;
 	color: #fff;
-	margin-top: 15px;
+	margin-top: 20px;
 	font-size: 12px;
 	background-color: #eb4f28;
 	padding: 8px;
@@ -267,23 +271,12 @@ a:focus {
 	padding-left: 20px;
 	padding-right: 20px;
 	font-weight: 600;
+    position: absolute;
+    right: 10px;
 }
 
-#portfolio > div > .projects > li > .information > .details:hover{
-	text-align: right;
-	color: #fff;
-	margin-top: 15px;
-	font-size: 12px;
+#portfolio > div > .projects > li > .information > .details:hover {
 	background-color: #d74723;
-	padding: 8px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	text-transform: uppercase;
-	display: inline-block;
-	padding-left: 20px;
-	padding-right: 20px;
-	font-weight: 600;
 }
 
 
@@ -291,9 +284,6 @@ a:focus {
 
 #about > div.container {
 	width: 1000px;
-}
-#about > nav > .logo {
-	background-image: url(../images/logo_portfolio_y.jpg);
 }
 
 #about > nav .selected {
