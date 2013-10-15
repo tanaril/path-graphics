@@ -45,7 +45,7 @@ a:focus {
 }
 .navbar .navbar-nav > li > a,
 .navbar .navbar-nav > li > span {
-    height: 92px;
+    height: 76px;
     line-height: 60px;
     display:inline-block;
     margin-left: 28px;
