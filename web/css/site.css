@@ -66,7 +66,7 @@ a:focus {
 }
 .navbar .navbar-nav > li > span.logo {
     background-image: url(../images/logo-red.png);
-	height: 92px;
+	height: 93px;
 	width: 83px;
 	margin: 0;
 }
@@ -112,7 +112,7 @@ a:focus {
 	background-image: url(../images/logo.png);
 	background-repeat: no-repeat;
 	background-position: center center;
-	height: 86px;
+	height: 92px;
 	text-indent: -10000px;
 }
 
