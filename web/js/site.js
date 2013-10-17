@@ -77,12 +77,13 @@ $(document).ready(function() {
      * Have the navigation links scroll smoothly to their page.
      */
     $(".buttons a, nav a").on("click", function(event) {
-        // Don't follow the default behavior of redirecting to the page in the href
-        event.preventDefault();
         // get the name of the target where the user wants to be directed to
         var $target = $($(this).attr('href'));
 
         if ( $target ) {
+			
+        // Don't follow the default behavior of redirecting to the page in the href
+        event.preventDefault();
             // Block futher scrolling till the auto scroll is finished
             autoScroll = true;
             // Scroll
