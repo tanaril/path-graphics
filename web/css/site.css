@@ -163,6 +163,7 @@ a:focus {
 #homepage > div > .buttons {
     text-align: center;
 	margin-top: 115px;
+    margin-bottom: 90px;
 }
 
 #homepage > div > .buttons > a {
