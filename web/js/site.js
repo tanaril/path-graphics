@@ -167,17 +167,17 @@ $(document).ready(function() {
             $newBody.find('a.next, a.rightarrow').on('click', function(event) {
                 event.preventDefault();
                 $newBody.remove();
-                $this.closest('li').next().find('a').trigger('click');
+                $this.closest('li').next(':visible').find('a').trigger('click');
             });
             $newBody.find('a.previous, a.leftarrow').on('click', function(event) {
                 event.preventDefault();
                 $newBody.remove();
-                $this.closest('li').prev().find('a').trigger('click');
+                $this.closest('li').prev(':visible').find('a').trigger('click');
             });
-            if ( $this.closest('li').prev().length == 0 || $this.closest('li').prev().find('a').length == 0 ) {
+            if ( $this.closest('li').prev(':visible').length == 0 || $this.closest('li').prev(':visible').find('a').length == 0 ) {
                 $newBody.find('a.previous, a.leftarrow').remove();
             }
-            if ( $this.closest('li').next().length == 0 || $this.closest('li').next().find('a').length == 0 ) {
+            if ( $this.closest('li').next(':visible').length == 0 || $this.closest('li').next(':visible').find('a').length == 0 ) {
                 $newBody.find('a.next, a.rightarrow').remove();
             }
 
