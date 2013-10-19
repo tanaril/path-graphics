@@ -140,8 +140,6 @@ $(document).ready(function() {
         if ( null === scrollPosition ) { scrollPosition = $(window).scrollTop(); }
         var $body = $('body > div.content');
         var $this = $(this);
-        var $next = $this.closest('li').next(':visible');
-        var $prev = $this.closest('li').prev(':visible');
         $.get($(this).attr('href'), function(data) {
             var body = $(data);
             var $newBody = $('<div></div>').append(body);
@@ -169,19 +167,25 @@ $(document).ready(function() {
             $newBody.find('a.next, a.rightarrow').on('click', function(event) {
                 event.preventDefault();
                 $newBody.remove();
-                $body.show();
+                var $next = $this.closest('li').next();
+                if ( $next.hasClass('visible-sm') ) {
+                    $next = $next.next();
+                }
                 $next.find('a').trigger('click');
             });
             $newBody.find('a.previous, a.leftarrow').on('click', function(event) {
                 event.preventDefault();
                 $newBody.remove();
-                $body.show();
+                var $prev = $this.closest('li').prev();
+                if ( $prev.hasClass('visible-sm') ) {
+                    $prev = $prev.prev();
+                }
                 $prev.find('a').trigger('click');
             });
-            if ( $prev.length == 0 || $prev.find('a').length == 0 ) {
+            if ( $this.closest('li').prev().length == 0 || $this.closest('li').prev().find('a').length == 0 ) {
                 $newBody.find('a.previous, a.leftarrow').remove();
             }
-            if ( $next.length == 0 || $next.find('a').length == 0 ) {
+            if ( $this.closest('li').next().length == 0 || $this.closest('li').next().find('a').length == 0 ) {
                 $newBody.find('a.next, a.rightarrow').remove();
             }
 
