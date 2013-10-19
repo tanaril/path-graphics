@@ -17,7 +17,7 @@ $(document).ready(function() {
      */
      $window.resize(function() {
 
-        $nav.children('div').width(($nav.width()-82)/2);
+        $nav.children('div.top').width(($nav.width()-82)/2);
 
         // Get the height of the viewport
         var height = jQuery(window).height();

@@ -29,6 +29,9 @@ a:focus {
     background-image: url(../images/navbar.png);
     background-repeat: repeat-x;
     float:left;
+    height: 76px;
+    position: relative;
+    z-index: 10;
 }
 .navbar .left {
     margin-right: 41px;
@@ -86,6 +89,22 @@ a:focus {
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background: none;
+}
+
+.navbar .nav-collapse, .navbar .nav-collapse ul, .navbar .nav-collapse ul a {
+    width: 100%;
+}
+.navbar .nav-collapse ul a {
+    display: block;
+    margin: 0px;
+    border-bottom: 1px solid grey;
+}
+.navbar .nav-collapse {
+    background: none repeat scroll 0 0 #808080;
+    margin-top: -76px;
+    padding-top: 76px;
+    position: relative;
+    z-index: 1;
 }
 
 .page .container {
@@ -487,7 +506,7 @@ a:focus {
 	font-size: 14px;
 }
 
-#contact button {
+#contact form button {
 	background-color: #1a99aa;
 	padding: 15px;
 	padding-left: 40px;
@@ -505,7 +524,7 @@ a:focus {
 	
 }
 
-#contact button:hover {
+#contact form button:hover {
 	background-color: #178795;
 }
 
@@ -770,4 +789,34 @@ article.project > header > .container > .cancel, article.project > footer > .con
     color: #1A99AA;
     text-shadow: none;
 }
+.arrow-down {
+    width: 60px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: grey;
 
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+@media (max-width: 768px) {
+    #contact > div.container, #portfolio > div.container, #about > div.container {
+        width: 100%;
+    }
+    #contact form .row .col-md-6:first-child {
+        padding-right: 15px;
+        margin-bottom: 17px;
+    }
+
+    #contact form button {
+        margin-bottom: 22px;
+    }
+
+    #portfolio > div > .projects {
+        max-width: 333px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
