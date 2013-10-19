@@ -146,6 +146,7 @@ $(document).ready(function() {
                 event.preventDefault();
                 $body.siblings().remove();
                 $body.show();
+                $window.trigger('resize');
                 scrollEnabled = false;
                 $('html, body').animate({
                     scrollTop: scrollPosition
