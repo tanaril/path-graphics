@@ -43,7 +43,11 @@ $(document).ready(function() {
             }
             // Use padding instead of margin due to the background
             if ( $(this).attr('id') == 'homepage' ) {
-                $container.css({'padding-top': marginTop});
+                if ( marginTop > '50' ) {
+                    $container.css({'padding-top': marginTop});
+                } else {
+                    $container.css({'padding-top': 50});
+                }
             } else {
                 $container.css({'padding-top': marginTop});
             }
