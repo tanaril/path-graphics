@@ -43,9 +43,9 @@ $(document).ready(function() {
             }
             // Use padding instead of margin due to the background
             if ( $(this).attr('id') == 'homepage' ) {
-                $container.css({'paddig-top': marginTop + $container.css("padding-top")});
+                $container.css({'padding-top': marginTop});
             } else {
-                $container.css({'padding-top': marginTop < $nav.height() ? marginTop : marginTop});
+                $container.css({'padding-top': marginTop});
             }
             // Set the minimum height of the page.
             $(this).css({"min-height": height});
