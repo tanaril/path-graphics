@@ -87,6 +87,7 @@ a:focus {
     display: inline-block;
     float:none;
 }
+
 .nav > li > a:hover, .nav > li > a:focus {
     background: none;
 }
@@ -100,13 +101,20 @@ a:focus {
     border-bottom: 1px solid grey;
 }
 .navbar .nav-collapse {
-    background: none repeat scroll 0 0 #808080;
+    background-image: url(../images/skewed_print.png);
+    background-repeat: repeat;
     margin-top: -76px;
     padding-top: 76px;
     position: relative;
     z-index: 1;
 }
-
+.navbar .nav-collapse .navbar-nav {
+    margin: 0px;
+}
+.navbar button.navbar-toggle .icon-bar {
+    width: 66px;
+    height: 6px;
+}
 .page .container {
 }
 
@@ -211,6 +219,10 @@ a:focus {
 
 /* PORTFOLIO*/
 
+#portfolio .navbar button.navbar-toggle .icon-bar {
+    background-color: #ed6c4c;
+}
+
 #portfolio > nav > .logo {
 	background-image: url(../images/logo_portfolio.jpeg);
 }
@@ -300,6 +312,11 @@ a:focus {
 
 
 /* ABOUT*/
+
+#about .navbar button.navbar-toggle .icon-bar {
+    background-color: #f1c016;
+}
+
 
 #about > div.container {
 	width: 1000px;
@@ -394,6 +411,12 @@ a:focus {
 }	
 
 /* CONTACT*/
+
+
+#contact .navbar button.navbar-toggle .icon-bar {
+    background-color: #1a99aa;
+}
+
 
 #contact > div.container {
 	width: 1000px;
@@ -818,5 +841,13 @@ article.project > header > .container > .cancel, article.project > footer > .con
         max-width: 333px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #about .design, #about .branding, #about .development {
+
+        padding-left: 15px;
+        padding-top: 62px;
+        background-position: center top;
+        text-align: center;
     }
 }
