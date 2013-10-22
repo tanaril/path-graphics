@@ -873,7 +873,8 @@ article.project > header > .container > .cancel, article.project > footer > .con
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
-footer {
+s
+footer.main {
     height: 50px;
     line-height: 50px;
     margin-left: 15px;
@@ -960,7 +961,7 @@ footer {
         margin-bottom: 85px;
     }
 
-    footer {
+    footer.main {
         width: auto;
     }
 	.navbar div {
@@ -1075,7 +1076,7 @@ footer {
 		background-size: 100%;
     }
 
-    footer {
+    footer.main {
         width: auto;
     }
 	.navbar div {
