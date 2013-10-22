@@ -27,7 +27,6 @@ a:focus {
 .navbar div {
     background: transparent;
     background-image: url(../images/navbar.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/navbar.png');
     background-repeat: repeat-x;
     float:left;
     height: 76px;
@@ -70,7 +69,6 @@ a:focus {
 }
 .navbar .navbar-nav > li > span.logo {
     background-image: url(../images/logo-red.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/logo-red.png');
 	height: 76px;
 	width: 83px;
 	margin: 0;
@@ -80,12 +78,10 @@ a:focus {
 
 .navbar.about .navbar-nav > li > span.logo {
     background-image: url(../images/logo-yellow.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/logo-yellow.png');
 }
 
 .navbar.contact .navbar-nav > li > span.logo {
     background-image: url(../images/logo-blue.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/logo-blue.png');
 }
 .navbar .navbar-nav {
     display: inline-block;
@@ -106,7 +102,6 @@ a:focus {
 }
 .navbar .nav-collapse {
     background-image: url(../images/skewed_print.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/skewed_print.png');
     background-repeat: repeat;
     margin-top: -76px;
     padding-top: 76px;
@@ -132,7 +127,6 @@ a:focus {
 
 #homepage {
 	background-image: url(../images/square_bg.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/square_bg.png');
 	background-repeat: repeat;	
 }
 
@@ -143,7 +137,6 @@ a:focus {
 
 #homepage > div > #logo {
 	background-image: url(../images/logo.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/logo.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	height: 75px;
@@ -359,7 +352,6 @@ a:focus {
 	margin-top: 70px;
 	display: inline-block;
 	background-image: url(../images/dlicon.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/dlicon.png');
 	background-repeat: no-repeat;
 	background-position: 13px center;
 	padding-left: 30px;
@@ -379,7 +371,6 @@ a:focus {
 	margin-top: 70px;
 	display: inline-block;
 	background-image: url(../images/dlicon.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/dlicon.png');
 	background-repeat: no-repeat;
 	background-position: 13px center;
 	padding-left: 30px;
@@ -392,7 +383,6 @@ a:focus {
 
 #about .design {
 	background-image: url(../images/webdesign.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/webdesign.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	padding-left: 62px;
@@ -407,7 +397,6 @@ a:focus {
 
 #about .development {
 	background-image: url(../images/webdevelopment.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/webdevelopment.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	padding-left: 62px;
@@ -416,7 +405,6 @@ a:focus {
 
 #about .branding {
 	background-image: url(../images/branding.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/branding.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	padding-left: 62px;
@@ -436,7 +424,6 @@ a:focus {
 }
 #contact {
 	background-image: url(../images/skewed_print.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/skewed_print.png');
 }
 
 #contact > nav .selected {
@@ -466,7 +453,6 @@ a:focus {
 	margin-top: 28px;
 	padding-top: 25px;
 	background-image: url(../images/phone.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/phone.png');
 	background-repeat: no-repeat;
 	background-position: 0px 18px;
 	color: #fff;
@@ -484,7 +470,6 @@ a:focus {
 
 #contact .skype{
 	background-image: url(../images/skype.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/skype.png');
 	background-repeat:no-repeat;
 	background-position: 0px center;
 	width: 35px;
@@ -496,7 +481,6 @@ a:focus {
 
 #contact .skype:hover{
 	background-image: url(../images/skypehover.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/skypehover.png');
 	background-repeat:no-repeat;
 	background-position: 0px center;
 	width: 35px;
@@ -508,7 +492,6 @@ a:focus {
 
 #contact .linkedin{
 	background-image: url(../images/linkedin.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/linkedin.png');
 	background-repeat:no-repeat;
 	background-position: 0px center;
 	width: 35px;
@@ -518,7 +501,6 @@ a:focus {
 
 #contact .linkedin:hover{
 	background-image: url(../images/linkedinhover.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/linkedinhover.png');
 	background-repeat:no-repeat;
 	background-position: 0px center;
 	width: 35px;
@@ -592,18 +574,15 @@ article.project > header > .container > a, article.project > footer > .container
 
 article.project > header > .container > .previous, article.project > footer > .container > .previous {
 	background-image: url(../images/page/previous.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/previous.png');
 	margin-right: 20px;
 }
 
 article.project > header > .container > .next, article.project > footer > .container > .next {
 	background-image: url(../images/page/next.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/next.png');
 }
 
 article.project > header > .container > .cancel, article.project > footer > .container > .cancel {
 	background-image: url(../images/page/close.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/close.png');
 	width: 24px;
 }
 
@@ -680,12 +659,10 @@ article.project > header > .container > .cancel, article.project > footer > .con
 }
 .project.thelovefairy .main-visual {
 	background-image:  url(../images/page/thelovefairy/home.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/thelovefairy/home.png');
 }
 
 .project .imac {
 	background-image:  url(../images/page/imac.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/imac.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	width: 100%;
@@ -777,7 +754,6 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
 .project.arthistory .main-visual {
 	background-image:  url(../images/page/thesis/westernart.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/thesis/westernart.png');
 }
 
 .chiro h1 {
@@ -791,7 +767,6 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
 .project.chiro .main-visual {
 	background-image:  url(../images/page/chiro/chiro.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/chiro/chiro.png');
 }
 
 .project .palette  {
@@ -817,7 +792,6 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
 .worldwithoutwar .main-visual {
 	background-image:  url(../images/page/world-without-war/worldwithoutwar.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/world-without-war/worldwithoutwar.png');
 }
 
 .markant h1 {
@@ -831,7 +805,6 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
 .markant .main-visual {
 	background-image:  url(../images/page/markant/markant.png);
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src='../images/page/markant/markant.png');
 }
 
 .alert-success {
