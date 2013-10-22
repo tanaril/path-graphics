@@ -111,9 +111,16 @@ a:focus {
 .navbar .nav-collapse .navbar-nav {
     margin: 0px;
 }
+.navbar button.navbar-toggle {
+    position: absolute;
+    right: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+
+}
 .navbar button.navbar-toggle .icon-bar {
-    width: 66px;
-    height: 6px;
+    width: 30px;
+    height: 4px;
 }
 .page .container {
 }
@@ -664,7 +671,7 @@ article.project > header > .container > .cancel, article.project > footer > .con
 .project .imac {
 	background-image:  url(../images/page/imac.png);
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: top center;
 	width: 100%;
 	height: 100%;
     background-size: 100%;
@@ -853,6 +860,30 @@ article.project > header > .container > .cancel, article.project > footer > .con
         background-position: center top;
         text-align: center;
     }
+
+    .project .work {
+        width: 100%;
+    }
+
+    .project .description {
+        width: auto;
+    }
+
+    .project .main-visual {
+        width: 290px;
+        height: 250px;
+        background-position: center 10px;
+        background-size: 100%;
+    }
+    #contact .leftside {
+        width: auto;
+    }
+    #about div.col-md-8 > p {
+        padding-right: 0px;
+    }
+    .project h1 {
+        font-size: 30px;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     #contact > div.container, #portfolio > div.container, #about > div.container {
@@ -917,7 +948,7 @@ article.project > header > .container > .cancel, article.project > footer > .con
     .project .main-visual {
         width: 575px;
         height: 500px;
-        background-position: 5px 25px;
+        background-position: 5px 20px;
 		background-size: 100%;
     }
 }
