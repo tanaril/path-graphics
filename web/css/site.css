@@ -836,6 +836,12 @@ article.project > header > .container > .cancel, article.project > footer > .con
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+footer {
+    height: 60px;
+    line-height: 60px;
+    margin-left: 15px;
+    width: 1000px;
+}
 @media (max-width: 768px) {
 
     #homepage > div > h1 {
@@ -900,6 +906,10 @@ article.project > header > .container > .cancel, article.project > footer > .con
 
     .social {
         margin-bottom: 20px;
+    }
+
+    footer {
+        width: auto;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -967,5 +977,9 @@ article.project > header > .container > .cancel, article.project > footer > .con
         height: 500px;
         background-position: 5px 20px;
 		background-size: 100%;
+    }
+
+    footer {
+        width: auto;
     }
 }
