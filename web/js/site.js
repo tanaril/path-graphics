@@ -16,8 +16,7 @@ $(document).ready(function() {
      * Resize pages based on the height of the viewport
      */
      $window.resize(function() {
-
-        $nav.children('div.top').width(($nav.width()-82)/2);
+        $nav.children('div.top').width(($nav.width()-$nav.find('.right .logo').width())/2);
 
         // Get the height of the viewport
         var height = jQuery(window).height();
@@ -80,7 +79,7 @@ $(document).ready(function() {
     /**
      * Have the navigation links scroll smoothly to their page.
      */
-    $(".buttons a, nav a").on("click", function(event) {
+    $(".buttons a, nav a, a.arrow-down").on("click", function(event) {
         // get the name of the target where the user wants to be directed to
         var $target = $($(this).attr('href'));
 

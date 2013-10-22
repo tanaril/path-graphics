@@ -41,6 +41,19 @@ a:focus {
     margin-left: 41px;
     text-align: left;
 }
+.navbar .right .logo {
+	position: relative;
+    background-image: url(../images/logo-red.png);
+	height: 76px;
+	width: 83px;
+ 	top: 0px; 
+	padding: 0px; 
+	margin: 0px;
+	left: -83px;
+}
+.navbar .right .navbar {
+	margin-left:-83px;
+}
 .navbar.portfolio,
 .navbar.about,
 .navbar.contact  {
@@ -67,20 +80,11 @@ a:focus {
 .navbar .navbar-nav > .active > a {
     background: none;
 }
-.navbar .navbar-nav > li > span.logo {
-    background-image: url(../images/logo-red.png);
-	height: 76px;
-	width: 83px;
-	margin: 0;
-}
-.navbar.portfolio .navbar-nav > li > span.logo {
-}
-
-.navbar.about .navbar-nav > li > span.logo {
+.navbar.about .right .logo {
     background-image: url(../images/logo-yellow.png);
 }
 
-.navbar.contact .navbar-nav > li > span.logo {
+.navbar.contact .right .logo {
     background-image: url(../images/logo-blue.png);
 }
 .navbar .navbar-nav {
@@ -98,29 +102,35 @@ a:focus {
 .navbar .nav-collapse ul a {
     display: block;
     margin: 0px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #1A1A1A;
 }
 .navbar .nav-collapse {
-    background-image: url(../images/skewed_print.png);
+	background-color: #000;
+    background-image: none;
     background-repeat: repeat;
     margin-top: -76px;
-    padding-top: 76px;
     position: relative;
     z-index: 1;
 }
 .navbar .nav-collapse .navbar-nav {
     margin: 0px;
+	margin-top: 76px;
 }
 .navbar button.navbar-toggle {
     position: absolute;
     right: 0px;
     margin-right: 0px;
     margin-top: 10px;
+	padding-right: 15px;
 
 }
 .navbar button.navbar-toggle .icon-bar {
     width: 30px;
     height: 4px;
+	border-radius: 0px;
+}
+.navbar button.collapsed .icon-bar {
+	background-color: #fff !important;
 }
 .page .container {
 }
@@ -252,7 +262,7 @@ a:focus {
 }
 
 #portfolio > div > .projects {
-	margin-bottom: 150px;
+	margin-bottom: 85px;
 }
 
 #portfolio > div > .projects > li {
@@ -311,7 +321,7 @@ a:focus {
 	padding-right: 20px;
 	font-weight: 600;
     position: absolute;
-    right: 10px;
+    right: 20px;
 }
 
 #portfolio > div > .projects > li > .information > .details:hover {
@@ -347,7 +357,27 @@ a:focus {
 	padding-right: 45px;
 	margin-bottom: 25px;
 }
+#about a.visible-xs {
+	margin-bottom: 85px;
+}
 
+#about a.visible-xs {
+	background-image: none;
+	text-align:center;
+	height: 50px;
+	line-height:35px;
+}
+
+#about a.visible-xs i {
+	background-image: url(../images/dlicon.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 11px;
+	height: 11px;
+	display:inline-block;
+	margin-right: 7px;
+	margin-bottom: -1px;
+}
 #about .download {
 	background-color: #222;
 	padding: 8px;
@@ -369,22 +399,6 @@ a:focus {
 }
 #about .download:hover {
 	background-color: #000;
-	padding: 8px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	color: #FFF;
-	text-transform: uppercase;
-	margin-top: 70px;
-	display: inline-block;
-	background-image: url(../images/dlicon.png);
-	background-repeat: no-repeat;
-	background-position: 13px center;
-	padding-left: 30px;
-	padding-right: 15px;
-	margin-bottom: 90px;
-	font-size: 12px;
-	font-weight: 600;
 }
 
 
@@ -514,6 +528,26 @@ a:focus {
 	height:35px;
 	display:inline-block;
 }
+
+#contact .twitter{
+	background-image: url(../images/twitter.png);
+	background-repeat:no-repeat;
+	background-position: 0px center;
+	width: 35px;
+	height:35px;
+	display:inline-block;
+	margin-left: 15px;
+}
+#contact .twitter:hover{
+	background-image: url(../images/twitterhover.png);
+	background-repeat:no-repeat;
+	background-position: 0px center;
+	width: 35px;
+	height:35px;
+	display:inline-block;
+	margin-left: 15px;
+}
+
 #contact input {
 	background-color: rgba(255, 255, 255, 0.1);
 	border:0;
@@ -829,18 +863,22 @@ article.project > header > .container > .cancel, article.project > footer > .con
     margin-right: auto;
     background-color: #e9e9e9;
     margin-top: 40px;
+	background-image: url(../images/scroll.png);
+	background-repeat:no-repeat;
+	background-position: center center;
 
     margin-bottom: 35px;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 footer {
-    height: 60px;
-    line-height: 60px;
+    height: 50px;
+    line-height: 50px;
     margin-left: 15px;
     width: 1000px;
+	font-size: 13px;
 }
 @media (max-width: 768px) {
 
@@ -848,7 +886,10 @@ footer {
         font-size: 33px;
         margin-top: 75px;
     }
-
+	#homepage > div > #logo {
+		background-image: url(../images/logo_mobile.png);
+		height: 60px;
+	}
 
     #homepage > div > p {
         font-size: 19px;
@@ -872,6 +913,13 @@ footer {
         margin-right: auto;
     }
 
+	
+	.navbar .navbar-nav > li > a {
+		height: 50px;
+		text-align: left;
+		padding-left: 15px;
+		line-height:50px;
+	}
     #about .design, #about .branding, #about .development {
 
         padding-left: 15px;
@@ -897,6 +945,10 @@ footer {
     #contact .leftside {
         width: auto;
     }
+	#contact .leftside p {
+	
+		margin-bottom: 45px;
+	}
     #about div.col-md-8 > p {
         padding-right: 0px;
     }
@@ -905,12 +957,54 @@ footer {
     }
 
     .social {
-        margin-bottom: 20px;
+        margin-bottom: 85px;
     }
 
     footer {
         width: auto;
     }
+	.navbar div {
+		background-image: url(../images/navbar_mobile.png);
+		height: 65px;
+	}
+	.navbar .left {
+		margin-right: 34px;
+	}
+	.navbar .right {
+		margin-left: 33px;
+	}
+	.navbar .right .logo {
+		position: relative;
+		background-image: url(../images/logo-red.png);
+		height: 65px;
+		width: 67px;
+		top: 0px; 
+		padding: 0px; 
+		margin: 0px;
+		left: -67px;
+	}
+	.navbar .right .navbar {
+		margin-left:-67px;
+	}
+	.navbar .right .logo {
+		background-image: url(../images/logo_mobile_red.png);
+		height: 65px;
+		width: 67px;
+		margin: 0;
+	}
+	.navbar .nav-collapse {
+		margin-top: -65px;
+	}
+	.navbar.about  .right .logo {
+		background-image: url(../images/logo_mobile_yellow.png);
+	}
+	
+	.navbar.contact  .right .logo {
+		background-image: url(../images/logo_mobile_blue.png);
+	}
+	.navbar button.navbar-toggle {
+		margin-top: 3px;
+	}
 }
 @media (min-width: 768px) and (max-width: 992px) {
     #contact > div.container, #portfolio > div.container, #about > div.container {
@@ -950,6 +1044,8 @@ footer {
         margin-right: auto;
         line-height: 30px;
         text-align: center;
+		padding-left: 0px;
+		padding-right: 0px;
         margin-top: 72px;
     }
 
@@ -982,4 +1078,48 @@ footer {
     footer {
         width: auto;
     }
+	.navbar div {
+		background-image: url(../images/navbar_mobile.png);
+		height: 65px;
+	}
+	.navbar .left {
+		margin-right: 34px;
+	}
+	.navbar .right {
+		margin-left: 33px;
+	}
+	.navbar .right .logo {
+		position: relative;
+		background-image: url(../images/logo-red.png);
+		height: 65px;
+		width: 67px;
+		top: 0px; 
+		padding: 0px; 
+		margin: 0px;
+		left: -67px;
+	}
+	.navbar .right .navbar {
+		margin-left:-67px;
+	}
+	.navbar .right .logo {
+		background-image: url(../images/logo_mobile_red.png);
+		height: 65px;
+		width: 67px;
+		margin: 0;
+	}
+	.navbar .nav-collapse {
+		margin-top: -65px;
+	}
+	.navbar.about  .right .logo {
+		background-image: url(../images/logo_mobile_yellow.png);
+	}
+	
+	.navbar.contact  .right .logo {
+		background-image: url(../images/logo_mobile_blue.png);
+	}
+	.navbar .navbar-nav > li > a,
+	.navbar .navbar-nav > li > span {
+		height: 65px;
+		line-height: 50px;
+	}
 }
