@@ -51,8 +51,8 @@ a:focus {
 	margin: 0px;
 	left: -83px;
 }
-.navbar .right .navbar {
-	margin-left:-83px;
+.navbar .right .navbar-nav {
+	margin-left: -83px;
 }
 .navbar.portfolio,
 .navbar.about,
