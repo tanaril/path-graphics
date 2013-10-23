@@ -134,7 +134,7 @@ $(document).ready(function() {
     });
 
     var scrollPosition = null;
-    $('#portfolio .projects a').on('click', function(event) {
+    /*$('#portfolio .projects a').on('click', function(event) {
         event.preventDefault();
         if ( null === scrollPosition ) { scrollPosition = $(window).scrollTop(); }
         var $body = $('body > div.content');
@@ -197,5 +197,5 @@ $(document).ready(function() {
                 easing: 'linear'
             });
         });
-    });
+    });*/
 });
