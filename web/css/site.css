@@ -635,7 +635,9 @@ article.project > header > .container > .cancel, article.project > footer > .con
 	margin-top: 115px;
 	margin-bottom: 25px;
 }
-
+.project .col-md-1 a {
+    display:none;
+}
 .project .type {
 	font-size: 14px;
 	font-weight: 300;
